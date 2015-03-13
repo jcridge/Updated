@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height" />
+    <meta name="description" content="{ENTER 10K DESCRIPTION HERE}">
+    <meta name="keywords" content="10K, Run, Fitness, Exercise">
+    <meta name="author" content="crij_12">   
+
+    <title>10K Hero</title>
+    
+    <script type="text/javascript" src="cordova.js"></script>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+    <script src="https://parse.com/downloads/javascript/parse-1.3.4.js"></script>
+
+    <script type="text/javascript" src="js/main.js"></script>
+	
+    <script type="text/javascript" src="js/run.js"></script>
+    
+    <!-- User Defined -->
+    <link rel="stylesheet" href="css/swiper.min.css">
+    <link rel="stylesheet" type="text/css" href="css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/skeleton.css">    
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    
+    
+    <script type="text/javascript">app.initialize();</script>
+    <script src='js/Chart.min.js'></script>
+	<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBITOpDd6IQ7H__5t2g4N-GVBrE7RbKOFE"></script>
+</head>
+
+<body onload="loadCordova()">
+<div class="app">
+    <!--
+        WELCOME PAGE 
+    -->
+    <div data-role="page" id="testUser">
+        <div class="container">
+            <div class="row">
+                <div class="twelve columns">
+                    <h1 class="">Welcome to 10K Hero!</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">
+                    <h3 class="">Begin your mission to run 10K!</h3>
+                </div>
+            </div>    
+            <ul style="list-style-type: none;">
+                <li style="float:left; width=50%;">
+                    <a class="button button-primary" href="#login" role="button">Log In</a>
+                </li>
+                <li style="float:right; width=50%;">
+                    <a class="button button-primary" href="#register" role="button">Register</a>
+                </li>
+            </ul>                  
+        </div>         
+    </div>
+    
+    <!--
+        LOGIN PAGE 
+    -->    
+    <div data-role="page" id="login">
+        <div data-role="header" data-position="fixed">
+            <h1>Login</h1>
+            <a data-rel="back" data-icon="back" data-iconpos="notext" data-iconpos="right"></a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <form method="POST">
+                    <div class="twelve columns">
+                        <label for="usernameInput">Enter your username:</label>
+                        <input class="u-full-width" type="text"      name="usernameInput" id="usernameInput" data-clear-btn="true" required>
+                    </div>
+                    
+                    <div class="twelve columns">
+                        <label for="passwordInput">Enter your password:</label>
+                        <input class="u-full-width" type="password"  name="passwordInput" id="passwordInput" data-clear-btn="true" required>
+                    </div>            
+
+                    <a class="button button-primary" href="#passReset" data-rel="popup">Forgotten your password?</a>
+                    
+                    <input class="button-primary" type="reset" value="Reset Information">
+                    <input class="button-primary" id="loginRunner" type="submit" value="Login">
+                </form>
+            </div>
+            <div data-role="popup" id="passReset">
+                    <div class="row">
+                        <div class="twelve columns">
+                            <h2>Ooops! Occassionaly some heroes forget their password.</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="twelve columns">
+                            <h4>Thankfully it is simple to retrieve and reset your password.</h4>
+                        </div>
+                    </div>            
+                    <form>
+                        <div class="row">
+                            <div class="twelve columns">
+                                <label for="resetPassInput">Enter your email:</label>
+                                <input class="u-full-width" type="text" name="resetPassInput" id="resetPassInput">
+                            </div>
+                        </div>
+                        <a class="button button-primary" id="resetPass" href="#passReset" data-rel="popup">Reset Password</a>
+                    </form>            
+            </div>            
+        </div>
+    </div>
+    
+    <!--
+        REGISTER PAGE 
+    -->       
+    <div data-role="page" id="register">        
+        <div data-role="header" data-position="fixed">
+            <h1>Register</h1>
+            <a data-rel="back" data-icon="back" data-iconpos="notext" data-iconpos="right"></a>
+        </div>
+
+        <div class="container">
+        <form>
+            <div class="row">
+                <div class="six columns">
+                    <label for="signUpForename">Your first name:</label>
+                    <input class="u-full-width" type="text" name="signUpForename" id="signUpForename" placeholder="Enter forename" data-clear-btn="true" required>
+                </div>
+                <div class="six columns">
+                    <label for="signUpSurname">Your last name:</label>
+                    <input class="u-full-width" type="text" name="signUpSurname" id="signUpSurname" placeholder="Enter surname" data-clear-btn="true" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="twelve columns">            
+                    <label for="email">Your email address:</label>
+                    <input type="email"     name="email"    id="email" placeholder="Enter your email address" data-clear-btn="true" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="one-third column">
+                    <label for="signUpAge">Your age:</label>
+                    <input class="u-full-width" type="number" min="16" max="100" step="1" placeholder="18" name="signUpAge" id="signUpAge" required>
+                </div> 
+                <div class="one-third column">
+                    <label for="signUpWeight">Enter your weight:</label>
+                    <input class="u-full-width" type="number" name="signUpWeight" id="signUpWeight" placeholder="Enter in pounds" required>                
+                </div>
+                <div class="one-third column">
+                    <label for="signUpHeight">Enter your height:</label>
+                    <input class="u-full-width" type="number" name="signUpHeight" id="signUpHeight" placeholder="Enter in inches" required>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-half column">
+                    <label for="signUpName">Your desired username:</label>
+                    <input class="u-full-width" type="text"      name="signUpName" id="signUpName" placeholder="Super_RunnerSid2015" data-clear-btn="true" required>
+                </div>
+                <div class="one-half column">
+                    <label for="signUpPass">Your desired password:</label>
+                    <input class="u-full-width" type="password"  name="signUpPass" id="signUpPass" placeholder="Enter your password" data-clear-btn="true" required>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="twelve columns">
+                    <label for="signUpBio">Bio:</label>
+                    <input class="u-full-width" type="text" name="signUpBio" id="signUpBio" placeholder="Enter a little bit about yourself." data-clear-btn="true">
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="one-third column">
+                    <label for="signUpSex" class="select">Choose your gender:</label>
+                    <select name="signUpSex" id="signUpSex" required>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                </div>
+                <div class="one-third column">
+                    <label for="signUpMedCond" class="select">Any medical conditions?</label>
+                    <select name="signUpMedCond" id="signUpMedCond">
+                        <option value="Yes">Yes</option>
+                        <option value="No">No</option>
+                        <option value="Prefer not to say">Prefer not to say</option>
+                    </select> 
+                </div>
+                <div class="one-third column">
+                    <label for="signUprevRunHistory" class="select">Previous Running Experience?</label>
+                    <select name="signUprevRunHistory" id="signUprevRunHistory">
+                        <option value="Lots">Lots</option>
+                        <option value="Some">Some</option>
+                        <option value="None">None</option>
+                    </select>  
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="twelve columns">
+                    <label for="capechoice" class="select">Choose your cape colour:</label>
+                    <select name="colourCape" id="capechoice" required>
+                        <option value="Aqua">Aqua</option>
+                        <option value="Blue" selected>Blue</option>
+                        <option value="Fuchsia">Fuchsia</option>
+                        <option value="Grey">Grey</option>
+                        <option value="Green">Green</option>
+                        <option value="Lime">Lime</option>
+                        <option value="Maroon">Maroon</option>
+                        <option value="Navy">Navy</option>
+                        <option value="Olive">Olive</option>
+                        <option value="Orange">Orange</option>
+                        <option value="Purple">Purple</option>
+                        <option value="Red">Red</option>
+                        <option value="Silver">Silver</option>
+                        <option value="Teal">Teal</option>
+                        <option value="Yellow">Yellow</option>
+                    </select>                    
+                </div>
+            </div>
+
+            <input class="button-primary" type="reset" value="Reset Information">
+            <input class="button-primary" id="registerRunner" type="submit" value="Register">
+        </form>
+    </div>  
+</div>
+
+    <!--
+        SETTINGS PAGE 
+    -->        
+    
+    <div data-role="page" id="settings">
+        <div data-role="header" data-position="fixed">
+            <h1>Settings</h1>
+            <a data-rel="back" data-icon="back" data-iconpos="notext" data-iconpos="right"></a>
+        </div>
+        <div class="ui-content">
+            <h1>Hey <span class="parseuser"></span>, here you can change your personal settings.</h1>
+            <h3>You may want to check your connection or location and change your metrics.</h3>
+            <div data-role="collapsible-set">
+                <div data-role="collapsible">
+                    <h3>Online/Offline</h3>
+                    <p id="networkInfo">Checking whether the application is online...</p>
+                </div>
+        
+                <div data-role="collapsible">
+                    <h3>Connection</h3>
+                    <p id="testNetwork">Gaining type of connection...</p>
+                </div>
+
+                <div data-role="collapsible">
+                    <h3>Device</h3>
+                    <p id="deviceProperties">Loading device properties...</p>
+                </div>
+
+                <div data-role="collapsible">
+                    <h3>Location</h3>
+                    <p id="longtext"></p>
+                    <p id="lattext"></p>
+                    <p id="time"></p> 
+                </div>
+            </div> 
+        </div>
+    </div>
+    
+    <!--
+        PROFILE PAGE 
+    -->        
+    
+    <div data-role="page" id="profile">
+        <div data-role="header" data-position="fixed">
+            <h1><span class="parseuser"></span>'s Profile</h1>
+            <a href="#settings" data-icon="gear" data-iconpos="notext" data-iconpos="right"></a>
+        </div>
+    <div class="ui-content">
+        <div id="profileTop">
+            <div id="profilePic">
+                <div id="imageContainer">This will be replaced</div>
+            </div>
+            <div id="profileInfo">
+                Welcome <span class="parseuser"></span><br>
+                Active since:<span class="parseuserdate"></span>
+            </div>
+        </div>
+        <input type="button" id="camerabtn" value="Load Camera" onclick="chooseMedia()">
+    </div>
+    <div class="ui-corner-all">
+        <div class="ui-bar ui-bar-a">
+            <h3><span class="parseuser"></span>'s information</h3>
+        </div>
+        <div class="ui-body ui-body-a">
+            <p>Here is your information storred at 10K Hero's HQ</p>
+            <p>As we already know, your Hero's name is <span class="parseuser"></span>. Your actual full name is <span class="parseuserfname"></span> <span class="parseusersname"></span> and you are a <span class="parseusergender"></span>.</p>
+        </div>
+    </div>
+    <div class="ui-corner-all">
+        <div class="ui-bar ui-bar-a">
+            <h3>Slider will go here</h3>
+        </div>
+        <div class="ui-body ui-body-a">
+        </div>
+    </div>  
+
+
+
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+	      <ul>
+	        <li><a href="#profile"     class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-profile">Profile</a></li>
+	        <li><a href="#goals"       class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-goal">Goals</a></li>
+	        <li><a href="#run"         class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-run">Run</a></li>
+	       	<li><a href="#past"        class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-history">Past</a></li>
+	        <li><a href="#stats"       class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-setting">Stats</a></li>
+	      </ul>
+	    </div>
+    </div>
+    </div>
+
+    <!--
+        GOALS PAGE 
+    -->        
+    
+    <div data-role="page" id="goals">
+    
+    <div data-role="header" data-position="fixed">
+        <h1>Goals</h1>
+        <a href="#settings" data-icon="gear" data-iconpos="notext" data-iconpos="right"></a>
+    </div>
+    <div class="ui-content">
+ 
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+	      <ul>
+	        <li><a href="#profile"     class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-profile">Profile</a></li>
+	        <li><a href="#goals"       class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-goal">Goals</a></li>
+	        <li><a href="#run"         class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-run">Run</a></li>
+	       	<li><a href="#past"        class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-history">Past</a></li>
+	        <li><a href="#stats"    class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-setting">Stats</a></li>
+	      </ul>
+	    </div>
+    </div>
+        
+	</div>
+    
+    <!--
+        RUN PAGE 
+    -->        
+    
+    <div data-role="page" id="run">
+
+    <div id="map-canvas"></div>
+
+    <style>
+    #map-canvas{
+        z-index: 1;
+        width: 100%;
+    }
+    </style>
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+	      <ul>
+	        <li><a href="#profile"     class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-profile">Profile</a></li>
+	        <li><a href="#goals"       class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-goal">Goals</a></li>
+	        <li><a href="#run"         class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-run">Run</a></li>
+	       	<li><a href="#past"        class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-history">Past</a></li>
+	        <li><a href="#stats"    class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-setting">Stats</a></li>
+	      </ul>
+	    </div>
+    </div>
+        
+	</div>
+    
+    <!--
+        PAST PAGE 
+    -->    
+    
+    <div data-role="page" id="past">
+    
+    <div data-role="header" data-position="fixed">
+        <h1>Past</h1>
+        <a href="#settings" data-icon="gear" data-iconpos="notext" data-iconpos="right"></a>
+    </div>
+    <div class="ui-content">
+    
+    <input type="text" name="textinput" id="addTaskText" value="" placeholder="New Task" />
+    <input type="button" id="addTaskButton" value="Add Task" />
+
+    <ul data-role="listview" id="taskList"></ul>
+
+    </div>
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+	      <ul>
+	        <li><a href="#profile"     class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-profile">Profile</a></li>
+	        <li><a href="#goals"       class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-goal">Goals</a></li>
+	        <li><a href="#run"         class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-run">Run</a></li>
+	       	<li><a href="#past"        class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-history">Past</a></li>
+	        <li><a href="#stats"    class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-setting">Stats</a></li>
+	      </ul>
+	    </div>
+    </div>
+        
+	</div>
+
+    <div data-role="page" id="stats">
+        <div data-role="header" data-position="fixed">
+            <a href="#settings" data-icon="gear" data-iconpos="notext" data-iconpos="right"></a>
+            <h1>Stats</h1>
+        </div>
+        <div class="ui-content">
+            <div class="row">
+                <h1>This is where you can get a quick glance of your progression</h1>
+            </div>
+            <div class="row">
+                <div class="one-half column">
+                    <canvas id="buyers" width="600" height="400"></canvas>
+                    <script>
+                    var num = 1;
+                        var buyerData = {
+                            labels : ["January","February","March","April","May","June"],
+                            datasets : [
+                            {
+                                fillColor : "rgba(172,194,132,0.4)",
+                                strokeColor : "#ACC26D",
+                                pointColor : "#fff",
+                                pointStrokeColor : "#9DB86D",
+                                data : [num,156,99,251,305,247]
+                            }
+                        ]
+                        }
+                        // get line chart canvas
+                        var buyers = document.getElementById('buyers').getContext('2d');
+                        // draw line chart
+                        new Chart(buyers).Line(buyerData);
+                    </script>
+                </div>
+                <div class="one-half column">
+                    <canvas id="testGraph" width="600" height="400"></canvas>
+                    <script>
+                    var num = 1;
+                        var mockdata = {
+                            labels : ["January","February","March","April","May","June"],
+                            datasets : [
+                            {
+                                fillColor : "rgba(172,194,132,0.4)",
+                                strokeColor : "#ACC26D",
+                                pointColor : "#fff",
+                                pointStrokeColor : "#9DB86D",
+                                data : [num,156,99,251,305,247]
+                            }
+                        ]
+                        }
+                        // get line chart canvas
+                        var testGraph = document.getElementById('testGraph').getContext('2d');
+                        // draw line chart
+                        new Chart(testGraph).Line(mockdata);
+                    </script>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="one-half column">
+                    <canvas id="test2" width="600" height="400"></canvas>
+                    <script>
+                    var num = 1;
+                        var testmock2 = {
+                            labels : ["January","February","March","April","May","June"],
+                            datasets : [
+                            {
+                                fillColor : "rgba(172,194,132,0.4)",
+                                strokeColor : "#ACC26D",
+                                pointColor : "#fff",
+                                pointStrokeColor : "#9DB86D",
+                                data : [num,156,99,251,305,247]
+                            }
+                        ]
+                        }
+                        // get line chart canvas
+                        var test2 = document.getElementById('test2').getContext('2d');
+                        // draw line chart
+                        new Chart(test2).Line(testmock2);
+                    </script>
+                </div>
+                <div class="one-half column">
+                    <canvas id="testGraph2" width="600" height="400"></canvas>
+                    <script>
+                    var num = 1;
+                        var mockdata2 = {
+                            labels : ["January","February","March","April","May","June"],
+                            datasets : [
+                            {
+                                fillColor : "rgba(172,194,132,0.4)",
+                                strokeColor : "#ACC26D",
+                                pointColor : "#fff",
+                                pointStrokeColor : "#9DB86D",
+                                data : [num,156,99,251,305,247]
+                            }
+                        ]
+                        }
+                        // get line chart canvas
+                        var testGraph2 = document.getElementById('testGraph2').getContext('2d');
+                        // draw line chart
+                        new Chart(testGraph2).Line(mockdata2);
+                    </script>
+                </div>
+            </div>
+        </div>
+    <div data-role="footer" data-position="fixed">
+        <div data-role="navbar">
+          <ul>
+            <li><a href="#profile"     class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-profile">Profile</a></li>
+            <li><a href="#goals"       class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-goal">Goals</a></li>
+            <li><a href="#run"         class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-run">Run</a></li>
+            <li><a href="#past"        class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-history">Past</a></li>
+            <li><a href="#stats"       class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-setting">Stats</a></li>
+          </ul>
+        </div>
+    </div>        
+    </div>
+    
+</div>
+<script type="text/javascript" src="js/parse.js"></script>
+
+<script src="js/swiper.min.js"></script>
+<script>
+
+</script>
+</body>
+</html>

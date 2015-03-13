@@ -1,0 +1,94 @@
+#testUser{
+background-image:url(../img/landingBackground.jpg);
+background-repeat:no-repeat;
+background-size: cover;
+background-position:center;
+}
+
+.ui-content {
+    padding: 0;
+}
+
+#profileTop{  
+}
+
+#profilePic{
+    width: 20%;
+    height: 75px;
+    float: left;
+}
+
+#profileInfo{
+    width: 80%;
+    height: 75px;
+    float: left;
+}
+
+.profileDivider{
+
+}
+
+.ui-icon-profile:after {
+	background-image: url("../img/svg/profile.svg") !important;
+    background-size: 14px 14px;
+}
+
+    /* Fallback */
+    .ui-nosvg .ui-icon-profile:after {	
+    }
+
+.ui-icon-trophy:after {
+	background-image: url("../img/svg/trophy.svg") !important;
+    background-size: 14px 14px;
+}
+
+    /* Fallback */
+    .ui-nosvg .ui-icon-trophy:after {
+    }
+
+.ui-icon-setting:after {
+	background-image: url("../img/svg/settings.svg") !important;
+    background-size: 14px 14px;
+}
+
+    /* Fallback */
+    .ui-nosvg .ui-icon-setting:after {	
+    }
+
+.ui-icon-history:after {
+	background-image: url("../img/svg/history.svg") !important;
+    background-size: 14px 14px;
+}
+
+    /* Fallback */
+    .ui-nosvg .ui-icon-history:after {
+    }
+
+.ui-icon-goal:after {
+	background-image: url("../img/svg/goals.svg") !important;
+    background-size: 14px 14px;
+}
+
+    /* Fallback */
+    .ui-nosvg .ui-icon-goal:after {	
+    }
+
+.ui-icon-run:after {
+	background-image: url("../img/svg/run.svg") !important;
+    background-size: 14px 14px;
+}
+
+    /* Fallback */
+    .ui-nosvg .ui-icon-run:after {
+    }
+
+.landingTitle{
+    font-size: 15vw;
+    color: blue;
+}
+
+.landingDescrip{
+    font-size: 10vw;
+    font-style: italic;
+}
+

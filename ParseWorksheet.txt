@@ -1,0 +1,52 @@
+// WORKSHEET
+//define a task model (just like Backbone.js)
+ var Task = Parse.Object.extend("Tasks");
+
+ //define a query
+ var query = new Parse.Query(Task);
+
+ //run query
+ query.find({success: querySuccess, error: error});
+
+
+function querySuccess(tasks) {
+    //Got a array of tasks. How many?
+    console.log("Successfully retrieved " + tasks.length + " tasks.");
+
+    //Print the ‘Task’ attribute of each task using a loop
+    //for (var i = 0; i < tasks.length; i++) {
+        //alert(tasks[i].get('Task') + 'is shit.');
+    //}
+    
+    //wipe the list clean
+    $("#taskList").empty();
+    
+    //add each tasks
+    for (var i = 0; i < tasks.length; i++) {
+     $("#taskList").append("<li>"+tasks[i].get('Task')+"</li>");
+    }
+    
+    //refresh the listview
+    $("#taskList").listview('refresh');
+}
+function error(error) {
+    //display an error message
+    console.log("Error: " + error.code + " " + error.message);
+}
+
+
+$(document).on("click", "#addTaskButton", onAddTask);
+
+function onAddTask() {
+    //console.log("add task button clicked");
+    var tasktext = $("#addTaskText").val();
+    var newTask = new Task();
+    newTask.set("Task", tasktext);
+
+    newTask.save(null, {success: saveSuccess, error: error});
+    function saveSuccess(task){
+        $("#taskList").listview('refresh');
+    }
+}
+
+// END OF WORKSHEET
