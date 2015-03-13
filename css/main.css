@@ -5,6 +5,10 @@ background-size: cover;
 background-position:center;
 }
 
+.ui-navbar li .ui-btn .ui-btn-inner, .ui-navbar li .ui-btn {
+    border: 0 solid red !important;
+}
+
 .ui-content {
     padding: 0;
 }
