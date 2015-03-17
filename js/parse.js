@@ -37,7 +37,12 @@ function registerUser(){
 	
 	user.signUp(null, {
 	  success: function(user) {
-		alert("User has been registered.");
+        navigator.notification.alert(
+            "User has been registered",
+            dismiss,
+            "10K Hero",
+            "Lets Go!"
+        );	
 		window.location.hash = "cape";
 	  },
 	  error: function(user, error) {
@@ -52,8 +57,13 @@ function loginUser(){
 
 	Parse.User.logIn(username, password, {
 		success: function(user) {
-			alert("Welcome " + username + " you have successfully logged in.");
-			 window.location.hash = "cape";
+		navigator.notification.alert(
+            "Welcome " + username + " you have successfully logged in.",
+            dismiss,
+            "10K Hero",
+            "Lets Go!"
+        );	
+		window.location.hash = "cape";
 		},
 		error: function(user, error) {
 			alert("Error: " + error.code + " " + error.message);

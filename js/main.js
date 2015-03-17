@@ -52,11 +52,11 @@ function applicationReady() {
         'Your OS platform is: ' + device.platform + '<br />';
 
     if (navigator.connection.type == 0) {
-        $('#networkInfo').text("Offline");
+        $('#networkInfo').text("Offline").addClass("ui-btn ui-btn-icon-top ui-icon-delete");
     } else if (navigator.connection.type == 'none') {
-        $('#networkInfo').text("Offline");
+        $('#networkInfo').text("Offline").addClass("ui-btn ui-btn-icon-top ui-icon-delete");
     } else {
-        $('#networkInfo').text("Online");
+        $('#networkInfo').text("Online").addClass("ui-btn ui-btn-icon-top ui-icon-check");
     }
 
     function dismiss() {}
