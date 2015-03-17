@@ -437,7 +437,7 @@
                         <b>Couch Potato to Superstar</b>
                         <p>For those wanting to get fitter</p>
                     </a>
-                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info">Check out where this plan came from.</a>
+                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info" onclick="window.open('http://bbc.co.uk','_blank','location=no,closebuttoncaption=Return');">Check out where this plan came from.</a>
                 </li>              
                 <li data-role="list-divider">5K Plans</li>
                 <li>
@@ -445,29 +445,30 @@
                         <b>Beginner Plan</b>
                         <p>A simple 5K plan for those who are not quite ready to jump straight into a 10K plan.</p>
                     </a>
-                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info" onclick="window.open('http://bbc.co.uk','_blank','location=no,closebuttoncaption=Done');">Check out where this plan came from.></a>
+                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info" onclick="window.open('http://bbc.co.uk','_blank','location=no,closebuttoncaption=Return');">Check out where this plan came from.></a>
                 </li>
                 <li>
-                    <a href="#">
+                    <a href="#myPopupDialog" data-rel="popup" data-position-to="window">
                         <b>Intermediate Plan</b>
                         <p>A 5K plan for those with previous running experience.</p>
                     </a>
-                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info">Check out where this plan came from.</a>
+                    <a href="#myPopupDialog" class="ui-nodisc-icon" data-transition="none" data-icon="info" onclick="window.open('http://bbc.co.uk','_blank','location=no,closebuttoncaption=Return');">Check out where this plan came from.</a>
                 </li>
+
                 <li data-role="list-divider">10K Plans</li>
                 <li>
                     <a href="#">
                         <b>Beginner 10K Running Plan</b>
                         <p>A plan designed for those who want to jump into their quest on reaching 10K!</p>
                     </a>
-                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info">Check out where this plan came from.</a>
+                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info" onclick="window.open('http://bbc.co.uk','_blank','location=no,closebuttoncaption=Return');">Check out where this plan came from.</a>
                 </li>
                 <li>
                     <a href="#">
                         <b>Intermediate Plan</b>
                         <p>For those who have possibly ran 10K before.</p>
                     </a>
-                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info">Check out where this plan came from.</a>
+                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info" onclick="window.open('http://bbc.co.uk','_blank','location=no,closebuttoncaption=Return');">Check out where this plan came from.</a>
                 </li>
                 <li data-role="list-divider">Diet Plans</li>
                 <li>
@@ -475,17 +476,27 @@
                         <b>Basic Nutritition Plan</b>
                         <p>A simple, healthy eating plan.</p>
                     </a>
-                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info">Check out where this plan came from.</a>
+                    <a class="ui-nodisc-icon" data-transition="none" data-icon="info" onclick="window.open('http://www.bbcgoodfood.com/howto/guide/what-eat-rest-or-low-intensity-training-days','_blank','location=no,closebuttoncaption=Return');">Check out where this plan came from.</a>
                 </li>
                 <li>
                     <a href="#">
                         <b>Moderate to Normal Plan</b>
                         <p>A diet plan for those running daily or following a running plan.</p>
                     </a>
-                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info">Check out where this plan came from.</a>
+                    <a class="ui-nodisc-icon" data-transition="none" data-icon="info" onclick="window.open('http://www.bbcgoodfood.com/howto/guide/what-eat-moderate-normal-training-days','_blank','location=no,closebuttoncaption=Return');">Check out where this plan came from.</a>
                 </li>
             </ul>                
         </div>
+        <div data-role="popup" id="myPopupDialog">
+            <div data-role="header">
+                <h1>Plan Summary</h1>
+            </div>
+            <div data-role="main" class="ui-content">
+                <b>Immediate Plan</b><br>
+                <i>8 Weeks</i><br>
+                <i>3-4 Workouts per week</i><br>
+            </div>
+        </div>        
     </div>    
     
     <!--
