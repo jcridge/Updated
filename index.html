@@ -21,7 +21,8 @@
     <link rel="stylesheet" type="text/css" href="css/normalize.css">
     <link rel="stylesheet" type="text/css" href="css/skeleton.css">    
     <link rel="stylesheet" type="text/css" href="css/main.css">
-    
+    <link href='http://fonts.googleapis.com/css?family=Bangers' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Special+Elite' rel='stylesheet' type='text/css'>
     
     <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
     
@@ -40,12 +41,12 @@
         <div class="container">
             <div class="row">
                 <div class="twelve columns">
-                    <h1 class="">Welcome to 10K Hero!</h1>
+                    <h1 class="" style="font-family: 'Bangers', cursive; font-size:3.75em; margin-top:20%; text-shadow: 1px 3px 2px rgba(76,118,255, 1);">Welcome to 10K Hero!</h1>
                 </div>
             </div>
             <div class="row">
                 <div class="twelve columns">
-                    <h3 class="">Begin your mission to run 10K!</h3>
+                    <h3 class="" style="font-family: 'Special Elite', cursive; font-size:2em; margin-top:5%; ">Begin your mission to run 10K!</h3>
                 </div>
             </div>    
             <ul style="list-style-type: none;">
@@ -333,6 +334,8 @@
     
     <div data-role="panel" id="mypanel">
         <a href="#profile">Your profile</a>
+        <br>
+        <a href="#credits">Credits</a>
     </div>
 
     <div data-role="header" data-position="fixed">
@@ -362,28 +365,128 @@
         GOALS PAGE 
     -->        
     
-    <div data-role="page" id="goals">
-    
-    <div data-role="header" data-position="fixed">
-        <h1>Goals</h1>
-        <a href="#settings" data-icon="gear" data-iconpos="notext" data-iconpos="right"></a>
-    </div>
-    <div class="ui-content">
- 
-    </div>
-    <div data-role="footer" data-position="fixed">
-        <div data-role="navbar">
-	      <ul>
-	        <li><a href="#cape"     class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-profile"></a></li>
-	        <li><a href="#goals"       class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-goal"></a></li>
-	        <li><a href="#run"         class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-run"></a></li>
-	       	<li><a href="#past"        class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-history"></a></li>
-	        <li><a href="#stats"    class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-setting"></a></li>
-	      </ul>
-	    </div>
-    </div>
+    <div data-role="page" id="goals"> 
+        <div data-role="header" data-position="fixed">
+            <h1>Goals</h1>
+            <a href="#settings" data-icon="gear" data-iconpos="notext" data-iconpos="right"></a>
+        </div>
         
+        <div class="container spacer red">
+            <div class="row">
+                <div class="twelve columns">
+                    <h4 style="position: absolute; bottom: 0; left: 0;">My inspirational image...</h4>
+                    <a id="camerabtn" onclick="chooseMedia()" style="position: absolute; bottom: 0; left: 0;">Tap to add your own inspirational image</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container spacer blue">
+            <div class="row">
+                <div class="twelve columns">
+                    <h4>My personal goals...</h4>
+                    <a href="#pGoals">View or add to your goals ></a>
+                </div>
+            </div>
+        </div>
+   
+        <div class="container spacer red">
+            <div class="row">
+                <div class="twelve columns">
+                    <h4>My training plan...</h4>
+                    <a href="#trainingPlan">Choose your plan ></a>
+                </div>
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed">
+            <div data-role="navbar">
+                <ul>
+    	           <li><a href="#cape"     class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-profile"></a></li>
+    	           <li><a href="#goals"       class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-goal"></a></li>
+    	           <li><a href="#run"         class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-run"></a></li>
+    	       	   <li><a href="#past"        class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-history"></a></li>
+    	           <li><a href="#stats"    class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-setting"></a></li>
+    	        </ul>
+    	    </div>
+        </div> 
 	</div>
+
+    <div data-role="page" id="pGoals">
+        <div data-role="header" data-position="fixed">
+            <h1>Your Goals</h1>
+            <a data-rel="back" data-icon="back" data-iconpos="notext" data-iconpos="right"></a>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="twelve columns">
+                </div>
+            </div>
+        </div>
+    </div>  
+
+    <div data-role="page" id="trainingPlan">
+        <div data-role="header" data-position="fixed">
+            <h1>Your Training Plan</h1>
+            <a data-rel="back" data-icon="back" data-iconpos="notext" data-iconpos="right"></a>
+        </div>
+        <div data-role="main" class="ui-content">
+            <ul data-role="listview" data-inset="true">
+                <li data-role="list-divider">General Fitness Plans</li>
+                <li>
+                    <a href="#">
+                        <b>Couch Potato to Superstar</b>
+                        <p>For those wanting to get fitter</p>
+                    </a>
+                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info">Check out where this plan came from.</a>
+                </li>              
+                <li data-role="list-divider">5K Plans</li>
+                <li>
+                    <a href="#">
+                        <b>Beginner Plan</b>
+                        <p>A simple 5K plan for those who are not quite ready to jump straight into a 10K plan.</p>
+                    </a>
+                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info" onclick="window.open('http://bbc.co.uk','_blank','location=no,closebuttoncaption=Done');">Check out where this plan came from.></a>
+                </li>
+                <li>
+                    <a href="#">
+                        <b>Intermediate Plan</b>
+                        <p>A 5K plan for those with previous running experience.</p>
+                    </a>
+                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info">Check out where this plan came from.</a>
+                </li>
+                <li data-role="list-divider">10K Plans</li>
+                <li>
+                    <a href="#">
+                        <b>Beginner 10K Running Plan</b>
+                        <p>A plan designed for those who want to jump into their quest on reaching 10K!</p>
+                    </a>
+                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info">Check out where this plan came from.</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <b>Intermediate Plan</b>
+                        <p>For those who have possibly ran 10K before.</p>
+                    </a>
+                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info">Check out where this plan came from.</a>
+                </li>
+                <li data-role="list-divider">Diet Plans</li>
+                <li>
+                    <a href="#">
+                        <b>Basic Nutritition Plan</b>
+                        <p>A simple, healthy eating plan.</p>
+                    </a>
+                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info">Check out where this plan came from.</a>
+                </li>
+                <li>
+                    <a href="#">
+                        <b>Moderate to Normal Plan</b>
+                        <p>A diet plan for those running daily or following a running plan.</p>
+                    </a>
+                    <a href="" class="ui-nodisc-icon" data-transition="none" data-icon="info">Check out where this plan came from.</a>
+                </li>
+            </ul>                
+        </div>
+    </div>    
     
     <!--
         RUN PAGE 
@@ -456,7 +559,17 @@
             </div>
             <div class="row">
                 <div class="one-half column">
-                    <canvas id="buyers" width="600" height="400"></canvas>
+                    <div id="main">
+                        <canvas id="buyers" width="250" height="250"></canvas>
+                    </div>
+                    <style type="text/css">
+                    #main{
+                        display:block;
+                        width:80%;
+                        padding-left: 5%;
+                        height:300px;
+                    }                     
+                    </style>
                     <script>
                     var num = 1;
                         var buyerData = {
@@ -478,7 +591,8 @@
                     </script>
                 </div>
                 <div class="one-half column">
-                    <canvas id="testGraph" width="600" height="400"></canvas>
+                    <div id="main">
+                    <canvas id="testGraph" width="250" height="250"></canvas></div>
                     <script>
                     var num = 1;
                         var mockdata = {
@@ -503,7 +617,8 @@
             
             <div class="row">
                 <div class="one-half column">
-                    <canvas id="test2" width="600" height="400"></canvas>
+                    <div id="main">
+                    <canvas id="test2" width="250" height="250"></canvas></div>
                     <script>
                     var num = 1;
                         var testmock2 = {
@@ -525,7 +640,8 @@
                     </script>
                 </div>
                 <div class="one-half column">
-                    <canvas id="testGraph2" width="600" height="400"></canvas>
+                    <div id="main">
+                    <canvas id="testGraph2" width="250" height="250"></canvas></div>
                     <script>
                     var num = 1;
                         var mockdata2 = {

@@ -86,7 +86,6 @@ function applicationReady() {
 
 function chooseMedia() {
     $("camerabtn").remove();
-    console.log("x");
     navigator.notification.confirm("Would you like to take a photo or upload a pre-existing photo?", onDoConfirm, "Choose Media", "Camera, Gallery");
 }
 
