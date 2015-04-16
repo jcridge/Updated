@@ -74,21 +74,38 @@ function resetPass(){
 	});
 }
 
+function logout(){
+    Parse.User.logOut();
+    alert("User has been logged out");
+    // DOES NOT LOG USER OUT. USERNAME STILL SHOWS
+}
+
 var currentUser = Parse.User.current();
+
+var joindate = currentUser.get('createdAt');
+$(".parseuserdate").html(joindate);
 
 var user = currentUser.get("username");
 $(".parseuser").html(user);
 
-var userinfo = currentUser.get("userInfo");
-//$("").html(userinfo);
+var usercape = currentUser.get("capeCol");
+$(".parseusercape").html(usercape);
 
 var fname = currentUser.get("forename");
-console.log(fname);
 $(".parseuserfname").html(fname);
 
 var sname = currentUser.get("surname");
 $(".parseusersname").html(sname);
 
+var age = currentUser.get("age");
+$(".parseage").html(age);
+
 var gender = currentUser.get("Gender");
 $(".parseusergender").html(gender);
+
+var height = currentUser.get("height");
+$(".parseuserheight").html(height);
+
+var weight = currentUser.get("weight");
+$(".parseuserweight").html(weight);
 

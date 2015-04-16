@@ -82,53 +82,7 @@ function applicationReady() {
     }
 }
 
-// CAMERA
 
-function chooseMedia() {
-    $("camerabtn").remove();
-    navigator.notification.confirm("Would you like to take a photo or upload a pre-existing photo?", onDoConfirm, "Choose Media", "Camera, Gallery");
-}
-
-function onDoConfirm(btnNum) {
-    if (btnNum == "1") {
-        takePhoto();
-    }
-    if (btnNum == "2") {
-        getImage();
-    }
-}
-
-// Take photo using phone camera
-function takePhoto() {
-    navigator.camera.getPicture(cameraSuccess, cameraError);
-}
-
-function cameraSuccess(imageAddress) {
-    phoneImage = document.getElementById('imageContainer');
-    phoneImage.innerHTML = '<img src="' + imageAddress + '" width="100%;" height="80%;" border-radius="30%;"/>';
-}
-
-function cameraError(errorMessage) {
-    navigator.notification.alert("Failed to load camera because of " + errorMessage);
-}
-
-// Get Prior Saved Image from Phone
-function getImage() {
-    navigator.camera.getPicture(loadSuccess, loadError, {
-        quality: 50,
-        destinationType: navigator.camera.DestinationType.FILE_URI,
-        sourceType: navigator.camera.PictureSourceType.SAVEDPHOTOALBUM
-    });
-}
-
-function loadSuccess(galleryAddress) {
-    phoneImage = document.getElementById('imageContainer');
-    phoneImage.innerHTML = '<img src="' + galleryAddress + '" width="100%;" "/>';
-}
-
-function loadError(errorMessage) {
-    navigator.notification.alert("Failed to load image because of " + errorMessage);
-}   
 
 $(document).ready(function(){
     $('#loginRunner').click(function(){

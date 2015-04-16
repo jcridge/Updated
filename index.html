@@ -14,6 +14,7 @@
     <script src="https://parse.com/downloads/javascript/parse-1.3.4.js"></script>
 
     <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/camera.js"></script>
 	
     <script type="text/javascript" src="js/run.js"></script>
     
@@ -285,6 +286,20 @@
                 </div>
             <input type="button" id="camerabtn" value="Load Camera" onclick="chooseMedia()"></div>
             
+            <form id="imageUpload" name="imageUpload" enctype="multipart/form-data" method="post">
+                <fieldset>
+                    <label>Upload from Camera</label>
+                    <br>
+                    <input type="file" accept="image/*;capture=camera">
+                    <br>
+                    <label>Upload from file</label>
+                    <br>
+                    <input type="file" name="imageselect" id="imageselect">
+                    <br>
+                    <input id="upload" type="button" value="Upload" />
+                </fieldset>
+            </form>
+
             <table class="u-full-width">
               <thead>
                 <tr>
@@ -302,12 +317,16 @@
                     <td><span class="parseuserfname"></span> <span class="parseusersname"></span></td>      
                 </tr>
                 <tr>
+                    <td>Cape Colour</td>
+                    <td><span class="parseusercape"></span></td>      
+                </tr>
+                <tr>
                     <td>Gender</td>
                     <td><span class="parseusergender"></span></td>      
                 </tr>
                 <tr>
                     <td>Age</td>
-                    <td><span class="parseuser"></span></td>      
+                    <td><span class="parseage"></span></td>      
                 </tr>
                 <tr>
                     <td>Height</td>
@@ -336,11 +355,22 @@
         <a href="#profile">Your profile</a>
         <br>
         <a href="#credits">Credits</a>
+        <hr>
+        <script>
+            function logout(){
+                var currentUser = Parse.User.current();
+                var user = currentUser.get("username");
+                alert("x " + user);
+                Parse.User.logOut();
+                alert("User has been logged out");
+                alert(user);
+            }
+        </script>
+        <a href="#testUser" onclick="logout()">Log Out</a>
     </div>
 
     <div data-role="header" data-position="fixed">
         <h1><span class="parseuser"></span>'s Cape</h1>
-        <!--<a href="#settings" data-icon="gear" data-iconpos="notext" data-iconpos="right"></a>-->
         <a href="#mypanel" data-icon="profile" data-iconpos="notext" class="ui-nodisc-icon"></a>
     </div>
     
@@ -370,44 +400,38 @@
             <h1>Goals</h1>
             <a href="#settings" data-icon="gear" data-iconpos="notext" data-iconpos="right"></a>
         </div>
-        
-        <div class="container spacer red">
-            <div class="row">
-                <div class="twelve columns">
-                    <h4 style="position: absolute; bottom: 0; left: 0;">My inspirational image...</h4>
-                    <a id="camerabtn" onclick="chooseMedia()" style="position: absolute; bottom: 0; left: 0;">Tap to add your own inspirational image</a>
-                </div>
-            </div>
-        </div>
-        
-        <div class="container spacer blue">
-            <div class="row">
-                <div class="twelve columns">
-                    <h4>My personal goals...</h4>
-                    <a href="#pGoals">View or add to your goals ></a>
-                </div>
-            </div>
-        </div>
-   
-        <div class="container spacer red">
-            <div class="row">
-                <div class="twelve columns">
-                    <h4>My training plan...</h4>
-                    <a href="#trainingPlan">Choose your plan ></a>
-                </div>
-            </div>
-        </div>
 
-        <div data-role="footer" data-position="fixed">
-            <div data-role="navbar">
-                <ul>
-    	           <li><a href="#cape"     class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-profile"></a></li>
-    	           <li><a href="#goals"       class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-goal"></a></li>
-    	           <li><a href="#run"         class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-run"></a></li>
-    	       	   <li><a href="#past"        class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-history"></a></li>
-    	           <li><a href="#stats"    class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-setting"></a></li>
-    	        </ul>
-    	    </div>
+        <div class="container">
+            <div class="row">
+                <div class="twelve columns">
+                    <div style="text-align: center;">Choosing the right plan and inspiration will be critical in your mission.</div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="twelve columns">
+                    <a class="button button-primary" href="#register" role="button" style="text-align: center;">Why planning is essential</a>
+                </div>
+            </div>
+            
+            <ul data-role="listview" data-inset="true" data-divider-theme="a">
+                <li data-role="list-divider">Leave it to me...</li>
+                <li><a id="camerabtn" onclick="chooseMedia()">My inspirational image</a></li>
+                <li><a href="#pGoals">View or add to your goals</a></li>
+                <li><a href="#trainingPlan">Choose your plan</a></li>
+            </ul>
+            
+            <div data-role="footer" data-position="fixed">
+                <div data-role="navbar">
+                    <ul>
+        	           <li><a href="#cape"     class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-profile"></a></li>
+        	           <li><a href="#goals"       class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-goal"></a></li>
+        	           <li><a href="#run"         class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-run"></a></li>
+        	       	   <li><a href="#past"        class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-history"></a></li>
+        	           <li><a href="#stats"    class="ui-btn ui-nodisc-icon ui-btn-icon-top ui-icon-setting"></a></li>
+        	        </ul>
+        	    </div>
+            </div>
         </div> 
 	</div>
 
@@ -566,7 +590,9 @@
         </div>
         <div class="ui-content">
             <div class="row">
-                <h1>This is where you can get a quick glance of your progression</h1>
+                <div class="ui-body ui-body-a ui-corner-all">
+                    A quick glance at your progression
+                </div>
             </div>
             <div class="row">
                 <div class="one-half column">
